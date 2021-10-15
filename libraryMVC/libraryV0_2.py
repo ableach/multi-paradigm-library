@@ -72,10 +72,11 @@ class View:
 
     @staticmethod
     def show_item(item_type, item, item_info):
-        print('//////////////////////////////////////////////////////////////')
-        print('Good news, we have the item {}!'.format(item.upper()))
-        print('{} INFO: {}'.format(item_type.upper(), item_info))
-        print('//////////////////////////////////////////////////////////////')
+        out = '//////////////////////////////////////////////////////////////\n'
+        out += 'Good news, we have the item {}!' + format(item.upper()) + '\n'
+        out += '{} INFO: {}'.format(item_type.upper(), item_info) + '\n'
+        out += '//////////////////////////////////////////////////////////////\n'
+        return out
 
     @staticmethod
     def display_missing_item_error(item, err):
@@ -210,6 +211,7 @@ def evHotKey(event):
 #
 top = Tk()
 F = Frame(top)
+top.geometry("800x600")
 F.pack(fill="both")
 
 # Now the frame with title entry
