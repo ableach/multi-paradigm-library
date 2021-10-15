@@ -128,8 +128,7 @@ class View:
         print('We have just removed {} from our list'.format(name))
         print('--------------------------------------------------------------')
 
-class BookController:
-
+class Controller:
     def __init__(self, model, view):
         self.model = model
         self.view = view
@@ -149,6 +148,15 @@ class BookController:
             self.view.show_item(item_type, item_name, item)
         except mvc_exc.ItemNotStored as e:
             self.view.display_missing_item_error(item_name, e)
+
+    def insert_item(self):
+        pass
+
+class BookController(Controller):
+
+    def __init__(self, model, view):
+        self.model = model
+        self.view = view
 
     def insert_item(self, title, author, genre):
         item_type = self.model.item_type
